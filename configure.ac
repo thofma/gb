@@ -67,6 +67,20 @@ AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([gettimeofday pow memset strchr strstr strtol])
 
+AC_MSG_CHECKING([if libtool needs -no-undefined flag to build shared libraries])
+case "$host" in
+  cygwin*|mingw*)
+  cygwin*|msys*|mingw*)
+    ## Add in the -no-undefined flag to LDFLAGS for libtool.
+    AC_MSG_RESULT([yes])
+    LDFLAGS="$LDFLAGS -no-undefined"
+    ;;
+  *)
+    ## Don't add in anything.
+    AC_MSG_RESULT([no])
+    ;;
+esac
+
 # Check whether --with-gmp was given.
 if test "${with_gmp+set}" = set; then :
   if test "$with_gmp" = yes ; then
