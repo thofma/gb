@@ -69,7 +69,6 @@ AC_CHECK_FUNCS([gettimeofday pow memset strchr strstr strtol])
 
 AC_MSG_CHECKING([if libtool needs -no-undefined flag to build shared libraries])
 case "$host" in
-  cygwin*|mingw*)
   cygwin*|msys*|mingw*)
     ## Add in the -no-undefined flag to LDFLAGS for libtool.
     AC_MSG_RESULT([yes])
